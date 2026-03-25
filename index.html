@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,10 +136,8 @@
   }
   .hero-date-pill:hover { background: rgba(255,255,255,0.28); border-color: white; }
 
-  /* CONTAINER */
   .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-  /* STATS BAR */
   .stats-bar {
     background: var(--white);
     border-bottom: 1px solid var(--border);
@@ -165,10 +164,7 @@
   }
   .stat-label { font-size: 12px; color: var(--muted); font-weight: 500; letter-spacing: 0.04em; }
 
-  /* SECTION WRAPPER */
-  .section {
-    padding: 64px 0 48px;
-  }
+  .section { padding: 64px 0 48px; }
   .section-header {
     display: flex;
     align-items: baseline;
@@ -195,7 +191,6 @@
     background: var(--border);
   }
 
-  /* RECOGNITION CARDS */
   .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -265,7 +260,6 @@
     padding-left: 10px;
   }
 
-  /* ACE CARD */
   .ace-card {
     background: #2a1f5a;
     color: var(--white);
@@ -316,7 +310,6 @@
     line-height: 1.6;
   }
 
-  /* TEAM CARD */
   .team-card {
     background: linear-gradient(135deg, #7040b8, #d946a8);
     color: var(--white);
@@ -336,7 +329,48 @@
     color: rgba(255,255,255,0.7);
   }
 
-  /* CHARTS SECTION */
+  .farewell-card {
+    background: linear-gradient(135deg, #1a1040, #3a1060);
+    color: var(--white);
+    border-radius: 16px;
+    padding: 28px;
+    border: none;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .farewell-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -20px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: #d946a8;
+    opacity: 0.15;
+  }
+  .farewell-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d080e0;
+    margin-bottom: 4px;
+  }
+  .farewell-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+  .farewell-body {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
   .charts-section {
     background: var(--white);
     border-top: 1px solid var(--border);
@@ -391,7 +425,6 @@
     color: var(--ink);
   }
 
-  /* FOOTER */
   .footer {
     background: #2a1f5a;
     color: rgba(255,255,255,0.35);
@@ -405,7 +438,7 @@
     .hero { padding: 48px 24px 40px; }
     .stats-inner { grid-template-columns: 1fr 1fr; }
     .charts-grid { grid-template-columns: 1fr; }
-    .ace-card { flex-direction: column; }
+    .ace-card, .farewell-card { flex-direction: column; }
     .section { padding: 40px 0 32px; }
   }
 </style>
@@ -426,11 +459,12 @@
     </div>
     <div class="hero-eyebrow">Platform Services Team · March 2026</div>
     <h1 class="hero-title">Team<br><em>Recognition</em></h1>
-    <p class="hero-sub">Three weeks of wins, shoutouts, and the people who made it happen.</p>
+    <p class="hero-sub">Four weeks of wins, shoutouts, and the people who made it happen.</p>
     <div class="hero-dates">
       <a class="hero-date-pill" href="#w04">04 March</a>
       <a class="hero-date-pill" href="#w11">11 March</a>
       <a class="hero-date-pill" href="#w18">18 March</a>
+      <a class="hero-date-pill" href="#w25">25 March</a>
       <a class="hero-date-pill" href="#charts">Charts</a>
     </div>
   </div>
@@ -440,11 +474,11 @@
 <div class="stats-bar">
   <div class="stats-inner" style="grid-template-columns: repeat(3, 1fr);">
     <div class="stat">
-      <div class="stat-num">3</div>
+      <div class="stat-num">4</div>
       <div class="stat-label">Meeting weeks covered</div>
     </div>
     <div class="stat">
-      <div class="stat-num">18</div>
+      <div class="stat-num">20</div>
       <div class="stat-label">Individuals recognised</div>
     </div>
     <div class="stat">
@@ -464,7 +498,6 @@
     </div>
     <div class="cards-grid">
 
-      <!-- ACE -->
       <div class="ace-card">
         <div class="ace-avatar">AN</div>
         <div>
@@ -474,7 +507,6 @@
         </div>
       </div>
 
-      <!-- Christina -->
       <div class="card">
         <div class="card-accent" style="background:var(--teal);"></div>
         <div class="card-top">
@@ -487,7 +519,6 @@
         <div class="card-body">Recognised for improving the Sony Asset creation workflow by implementing an Excel macro script. This automation significantly increased efficiency, reducing a task that typically took a week down to a maximum of two days.</div>
       </div>
 
-      <!-- Mahmoud -->
       <div class="card">
         <div class="card-accent" style="background:var(--blue);"></div>
         <div class="card-top">
@@ -500,7 +531,6 @@
         <div class="card-body">Commended for his <em>"excellent"</em> work on a new client transitioning to SaaS — managing the production of 9 to 10 templates within a short timeframe while directly handling client communication.</div>
       </div>
 
-      <!-- Nina -->
       <div class="card">
         <div class="card-accent" style="background:var(--plum);"></div>
         <div class="card-top">
@@ -513,7 +543,6 @@
         <div class="card-body">Praised for her work with a technical client involving Figma (Silverspin + Storytel). Instrumental in improving processes with the Entropy team and highlighted as a <em>"very good mentor"</em> and <em>"great project manager"</em>.</div>
       </div>
 
-      <!-- Alex -->
       <div class="card">
         <div class="card-accent" style="background:var(--olive);"></div>
         <div class="card-top">
@@ -526,7 +555,6 @@
         <div class="card-body">Highlighted for delivering flawlessly — particularly impressive given that he is still relatively new to the team.</div>
       </div>
 
-      <!-- Roberto -->
       <div class="card">
         <div class="card-accent" style="background:var(--coral);"></div>
         <div class="card-top">
@@ -539,7 +567,6 @@
         <div class="card-body">Acknowledged for his flexibility and proactive nature in picking up unresolved issues across various work threads.</div>
       </div>
 
-      <!-- Alicia -->
       <div class="card">
         <div class="card-accent" style="background:var(--rose);"></div>
         <div class="card-top">
@@ -552,7 +579,6 @@
         <div class="card-body">Recognised for her <em>"amazing"</em> work on the CK project and for her efforts in onboarding Christina.</div>
       </div>
 
-      <!-- WengMee -->
       <div class="card">
         <div class="card-accent" style="background:var(--slate);"></div>
         <div class="card-top">
@@ -565,7 +591,6 @@
         <div class="card-body">Received appreciation for returning to the team. Great to have you back!</div>
       </div>
 
-      <!-- Giulia Peris -->
       <div class="card">
         <div class="card-accent" style="background:var(--gold);"></div>
         <div class="card-top">
@@ -578,7 +603,6 @@
         <div class="card-body">Held up as a <em>"perfect example"</em> of exemplary hour logging — praised for her diligence in recording detailed information including overtime, template building, feedback, and client communication.</div>
       </div>
 
-      <!-- Tamar -->
       <div class="card">
         <div class="card-accent" style="background:#6a6a5a;"></div>
         <div class="card-top">
@@ -605,7 +629,6 @@
     </div>
     <div class="cards-grid">
 
-      <!-- Christina -->
       <div class="card">
         <div class="card-accent" style="background:var(--teal);"></div>
         <div class="card-top">
@@ -618,7 +641,6 @@
         <div class="card-body">Received a shoutout for developing <em>"another script that is more useful for TMDs"</em> — this new script automates the creation of a test batch in Excel, which previously had to be done manually, further automating workflows.</div>
       </div>
 
-      <!-- Giulia Peris -->
       <div class="card">
         <div class="card-accent" style="background:var(--gold);"></div>
         <div class="card-top">
@@ -631,7 +653,6 @@
         <div class="card-body">Recognised for <em>"setting up a lot of improved workflows"</em> — specifically one for Dr Oetker and another for the studio. Her work ensures that files brought to the studio for templating are <em>"getting better"</em>, described as an <em>"important step"</em>.</div>
       </div>
 
-      <!-- Luke -->
       <div class="card">
         <div class="card-accent" style="background:var(--blue);"></div>
         <div class="card-top">
@@ -644,7 +665,6 @@
         <div class="card-body">Received a <em>"huge shout out"</em> for managing a heavy workload across lots of different projects — including Odido, Radisson, and Planet Fitness. Also praised for helping colleagues Rick and Louis with their work on adverts.</div>
       </div>
 
-      <!-- Alicia -->
       <div class="card">
         <div class="card-accent" style="background:var(--rose);"></div>
         <div class="card-top">
@@ -657,7 +677,6 @@
         <div class="card-body">Praised for creating a <em>"very clear and smooth"</em> handover space and a dedicated channel to help Christina take over all Calvin Klein related tasks.</div>
       </div>
 
-      <!-- WengMee -->
       <div class="card">
         <div class="card-accent" style="background:var(--slate);"></div>
         <div class="card-top">
@@ -670,7 +689,6 @@
         <div class="card-body">Commended for doing a <em>"terrific job"</em> contributing to the team's goals.</div>
       </div>
 
-      <!-- Dimana -->
       <div class="card">
         <div class="card-accent" style="background:var(--plum);"></div>
         <div class="card-top">
@@ -683,7 +701,6 @@
         <div class="card-body">Named the <em>"hero of logging hours this week"</em> for her diligence in logging hours properly.</div>
       </div>
 
-      <!-- Jeremy Jones -->
       <div class="card">
         <div class="card-accent" style="background:var(--coral);"></div>
         <div class="card-top">
@@ -711,7 +728,6 @@
     </div>
     <div class="cards-grid">
 
-      <!-- Catalina + Julia -->
       <div class="card" style="grid-column: span 2;">
         <div class="card-accent" style="background:var(--rose);"></div>
         <div class="card-top">
@@ -728,7 +744,6 @@
         <div class="card-body">Recognised for handling a <em>"quite a crazy day"</em> when Nivea sent roughly <em>"20 ticket requests via support"</em> on a Friday. They handled the high volume of bug fixes and user errors <em>"perfectly"</em>.</div>
       </div>
 
-      <!-- Nina -->
       <div class="card">
         <div class="card-accent" style="background:var(--plum);"></div>
         <div class="card-top">
@@ -741,7 +756,6 @@
         <div class="card-body">Praised as a <em>"great leader"</em> on the SilverSpin project — managing her own complex Figma templates while overseeing an Entropy team member. Also took care of 8–9 templates for General Mills, described as a <em>"super, super difficult client"</em>, ensuring everything went <em>"really well"</em>.</div>
       </div>
 
-      <!-- Alex -->
       <div class="card">
         <div class="card-accent" style="background:var(--olive);"></div>
         <div class="card-top">
@@ -754,7 +768,6 @@
         <div class="card-body">Acknowledged for delivering excellent templates and highlighted as the <em>"last piece of the puzzle"</em> for the McArthurGlen project. His delivery made the client <em>"super happy"</em>.</div>
       </div>
 
-      <!-- Jair -->
       <div class="card">
         <div class="card-accent" style="background:var(--teal);"></div>
         <div class="card-top">
@@ -767,7 +780,6 @@
         <div class="card-body">Commended for prioritising his <em>"work-life balance"</em> and mental health — improving sleep, diet, and daily habits to maintain focus during a period when the team is <em>"super overwhelmed"</em>.</div>
       </div>
 
-      <!-- Mahmoud -->
       <div class="card">
         <div class="card-accent" style="background:var(--blue);"></div>
         <div class="card-top">
@@ -780,7 +792,6 @@
         <div class="card-body">Recognised for doing <em>"amazingly"</em> with Storytel, a <em>"gigantic client"</em> — managing 9 templates and working in <em>"direct contact"</em> with them so they now <em>"really understand the platform"</em>.</div>
       </div>
 
-      <!-- Julia + Romina -->
       <div class="card">
         <div class="card-accent" style="background:var(--gold);"></div>
         <div class="card-top">
@@ -792,7 +803,6 @@
         <div class="card-body">Praised for doing <em>"amazingly"</em> in managing project tasks. Romina specifically noted for <em>"excellent"</em> work despite being given a heavy workload.</div>
       </div>
 
-      <!-- Christina -->
       <div class="card">
         <div class="card-accent" style="background:var(--teal);"></div>
         <div class="card-top">
@@ -805,7 +815,6 @@
         <div class="card-body">Received a shoutout for <em>"taking over Calvin Klein"</em> and doing <em>"amazing"</em> by asking <em>"the right questions"</em> and <em>"learning day by day"</em>.</div>
       </div>
 
-      <!-- WengMee -->
       <div class="card">
         <div class="card-accent" style="background:var(--slate);"></div>
         <div class="card-top">
@@ -818,7 +827,6 @@
         <div class="card-body">Acknowledged for supporting Christina during the Calvin Klein transition.</div>
       </div>
 
-      <!-- Luuk -->
       <div class="card">
         <div class="card-accent" style="background:var(--gold);"></div>
         <div class="card-top">
@@ -831,10 +839,62 @@
         <div class="card-body">Named the <em>"rock star of time logging"</em> for being <em>"very detailed"</em>. Also recognised for completing the Huawei POC in a total of only 11 hours — described as <em>"insane"</em> for such a task.</div>
       </div>
 
-      <!-- Entire team -->
       <div class="team-card">
         <div class="team-card-title">The Entire Team 🎉</div>
         <div class="team-card-sub">Celebrated for building <strong>17 templates in week 11</strong> and maintaining a <em>"very billable"</em> status. A team effort through and through.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== WEEK 25/03 ===== -->
+<div id="w25" class="section" style="background:#efecf8;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-date">25 March</div>
+      <h2 class="section-title">Week <span>four</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="cards-grid">
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--blue);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--blue-light);color:var(--blue);">MA</div>
+          <div>
+            <div class="card-name">Mahmoud</div>
+            <span class="badge" style="background:var(--blue-light);color:var(--blue);">Script improvement</span>
+          </div>
+        </div>
+        <div class="card-body">Praised for suggesting a faster, more automated way to improve Christina's test batch script — described as <em>"a nice addition and a nice fix"</em>. Characteristically humble, he credited the foundation as Christina's work.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--gold);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--gold-light);color:#8a6a20;">LK</div>
+          <div>
+            <div class="card-name">Luuk</div>
+            <span class="badge" style="background:var(--gold-light);color:#8a6a20;">Client work & time logging</span>
+          </div>
+        </div>
+        <div class="card-body">Praised for joining the Dr Oetker client call, explaining everything clearly, and going the extra mile by building an example After Effects file for the client. Also highlighted as the team's star time logger this week — <em>"everyone do like Luke."</em></div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-title">Pixel Pilots 🎬</div>
+        <div class="team-card-sub" style="font-size:15px; color: rgba(255,255,255,0.85); margin-bottom:6px;"><strong>Luuk · Jolene · Dimana · Chad</strong></div>
+        <div class="team-card-sub">Given a group shout-out for <em>"keeping it together and picking up stuff that we usually shouldn't be picking up"</em> on the Heineken campaign — a project that started in November, was supposed to wrap in December, and is finally reaching its last template in March. Not because of them, but despite the chaos around them.</div>
+      </div>
+
+      <div class="farewell-card">
+        <div class="ace-avatar" style="background: linear-gradient(135deg, #c040b0, #7040b8);">JO</div>
+        <div>
+          <div class="farewell-eyebrow">Farewell & thank you</div>
+          <div class="farewell-name">Jolene</div>
+          <div class="farewell-body">"I see how you grew and I'm very thankful for what you brought to the team." — Celebrated as she moves on to a junior consultant role, taking with her the client-facing skills, debugging expertise, and documentation knowledge she built here. She'll be missed.</div>
+        </div>
       </div>
 
     </div>
@@ -850,16 +910,14 @@
     </div>
     <div class="charts-grid">
 
-      <!-- Bar: wins by person -->
       <div class="chart-box" style="grid-column: 1 / -1;">
         <div class="chart-title">Mentions by team member</div>
-        <div class="chart-sub">Number of shoutouts across all three weeks</div>
-        <div class="chart-wrap" style="height:520px;">
+        <div class="chart-sub">Number of shoutouts across all four weeks</div>
+        <div class="chart-wrap" style="height:580px;">
           <canvas id="barChart"></canvas>
         </div>
       </div>
 
-      <!-- Pie: wins by theme -->
       <div class="chart-box">
         <div class="chart-title">Recognition by theme</div>
         <div class="chart-sub">What the team was celebrated for</div>
@@ -869,10 +927,9 @@
         <div class="legend-list" id="pieLegend"></div>
       </div>
 
-      <!-- Pie: wins by week -->
       <div class="chart-box">
         <div class="chart-title">Shoutouts per week</div>
-        <div class="chart-sub">Volume of recognition across the three meetings</div>
+        <div class="chart-sub">Volume of recognition across the four meetings</div>
         <div class="chart-wrap" style="height:220px;">
           <canvas id="weekChart"></canvas>
         </div>
@@ -889,26 +946,29 @@
 </div>
 
 <script>
-// BAR CHART — mentions per person
 const people = [
+  { name: 'Luuk', count: 4, color: '#c9a84c' },
   { name: 'Christina', count: 3, color: '#1d7a6b' },
+  { name: 'WengMee', count: 3, color: '#3d5a6a' },
+  { name: 'Mahmoud', count: 3, color: '#2a5fa8' },
   { name: 'Alicia', count: 2, color: '#b84c5a' },
-  { name: 'Mahmoud', count: 2, color: '#2a5fa8' },
   { name: 'Nina', count: 2, color: '#6a3d7a' },
   { name: 'Aleks', count: 2, color: '#5a7a2a' },
-  { name: 'WengMee', count: 3, color: '#3d5a6a' },
   { name: 'Giulia Peris', count: 2, color: '#c9a84c' },
   { name: 'Julia B-P', count: 2, color: '#c9a84c' },
+  { name: 'Dimana', count: 2, color: '#6a3d7a' },
+  { name: 'Jolene', count: 2, color: '#c040b0' },
   { name: 'Anton', count: 1, color: '#c9a84c' },
   { name: 'Roberto', count: 1, color: '#c45c38' },
   { name: 'Tamar', count: 1, color: '#6a6a5a' },
-  { name: 'Luuk', count: 1, color: '#2a5fa8' },
-  { name: 'Dimana', count: 1, color: '#6a3d7a' },
   { name: 'Jeremy', count: 1, color: '#c45c38' },
   { name: 'Catalina', count: 1, color: '#b84c5a' },
   { name: 'Jair', count: 1, color: '#1d7a6b' },
   { name: 'Romina', count: 1, color: '#c45c38' },
+  { name: 'Chad', count: 1, color: '#7040b8' },
 ];
+
+people.sort((a, b) => b.count - a.count);
 
 new Chart(document.getElementById('barChart'), {
   type: 'bar',
@@ -925,7 +985,10 @@ new Chart(document.getElementById('barChart'), {
     indexAxis: 'y',
     responsive: true,
     maintainAspectRatio: false,
-    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.x} mention${ctx.parsed.x > 1 ? 's' : ''}` }}},
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.x} mention${ctx.parsed.x > 1 ? 's' : ''}` }}
+    },
     scales: {
       x: { beginAtZero: true, ticks: { stepSize: 1, font: { family: 'DM Sans', size: 11 }, color: '#7a7a9a' }, grid: { color: 'rgba(0,0,0,0.05)' } },
       y: { grid: { display: false }, ticks: { font: { family: 'DM Sans', size: 12 }, color: '#2a2440' } }
@@ -933,14 +996,13 @@ new Chart(document.getElementById('barChart'), {
   }
 });
 
-// PIE CHART — themes
 const themes = [
   { label: 'Delivery & output', value: 6, color: '#1d7a6b' },
-  { label: 'Client management', value: 5, color: '#2a5fa8' },
+  { label: 'Client management', value: 6, color: '#2a5fa8' },
   { label: 'Mentorship & onboarding', value: 3, color: '#6a3d7a' },
-  { label: 'Automation & scripting', value: 3, color: '#c9a84c' },
-  { label: 'Hour logging', value: 3, color: '#b84c5a' },
-  { label: 'Flexibility & support', value: 3, color: '#c45c38' },
+  { label: 'Automation & scripting', value: 4, color: '#c9a84c' },
+  { label: 'Hour logging', value: 4, color: '#b84c5a' },
+  { label: 'Flexibility & support', value: 4, color: '#c45c38' },
   { label: 'Wellbeing', value: 1, color: '#5a7a2a' },
 ];
 
@@ -961,11 +1023,11 @@ themes.forEach(t => {
   pieLeg.innerHTML += `<div class="legend-item"><span class="legend-dot" style="background:${t.color}"></span><span>${t.label}</span><span class="legend-val">${t.value}</span></div>`;
 });
 
-// WEEK CHART
 const weeks = [
   { label: '04 March', value: 10, color: '#1d7a6b' },
   { label: '11 March', value: 7, color: '#2a5fa8' },
   { label: '18 March', value: 11, color: '#6a3d7a' },
+  { label: '25 March', value: 4, color: '#d946a8' },
 ];
 new Chart(document.getElementById('weekChart'), {
   type: 'doughnut',
