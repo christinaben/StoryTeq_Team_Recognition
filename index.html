@@ -413,7 +413,7 @@
       <div class="stat-label">Meeting weeks covered</div>
     </div>
     <div class="stat">
-      <div class="stat-num">8</div>
+      <div class="stat-num">9</div>
       <div class="stat-label">Individuals recognised</div>
     </div>
     <div class="stat">
@@ -503,18 +503,6 @@
       </div>
 
       <div class="card">
-        <div class="card-accent" style="background:var(--plum);"></div>
-        <div class="card-top">
-          <div class="avatar" style="background:var(--plum-light);color:var(--plum);">DI</div>
-          <div>
-            <div class="card-name">Diana</div>
-            <span class="badge" style="background:var(--plum-light);color:var(--plum);">Rock star logger</span>
-          </div>
-        </div>
-        <div class="card-body">Named <em>"the rock star of time logging"</em> for March.</div>
-      </div>
-
-      <div class="card">
         <div class="card-accent" style="background:var(--teal);"></div>
         <div class="card-top">
           <div class="avatar" style="background:var(--teal-light);color:var(--teal);">CH</div>
@@ -524,6 +512,18 @@
           </div>
         </div>
         <div class="card-body">Recognised for being <em>"kind enough to process all the data from the meetings"</em> across the entire month — pulling out all the mentions and comments from the Wednesday Wins chapter and building the web-based report the team now uses ahead of the monthly vote.</div>
+      </div>
+
+     <div class="card">
+        <div class="card-accent" style="background:var(--plum);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--plum-light);color:var(--plum);">TA</div>
+          <div>
+            <div class="card-name">Tamar</div>
+            <span class="badge" style="background:var(--plum-light);color:var(--plum);">Client communication</span>
+          </div>
+        </div>
+        <div class="card-body">Recognised for taking all the communication from Radisson — a very demanding client. <em>"All the hell that they're giving you, girl. Well done. Well done."</em></div>
       </div>
 
     </div>
@@ -584,6 +584,7 @@ const people = [
   { name: 'Mahmoud', count: 1, color: '#2a5fa8' },
   { name: 'Diana', count: 1, color: '#8a5cc8' },
   { name: 'Christina', count: 1, color: '#1d7a6b' },
+  { name: 'Tamar', count: 1, color: '#8a5cc8' },
 ];
 
 people.sort((a, b) => b.count - a.count);
@@ -616,6 +617,7 @@ new Chart(document.getElementById('barChart'), {
 
 const themes = [
   { label: 'Client delivery', value: 3, color: '#2a5fa8' },
+  { label: 'Client communication', value: 1, color: '#8a5cc8' },
   { label: 'Scripting & automation', value: 1, color: '#c9a84c' },
   { label: 'Template delivery', value: 1, color: '#c45c38' },
   { label: 'Project management', value: 1, color: '#5870c8' },
@@ -641,7 +643,7 @@ themes.forEach(t => {
 });
 
 const weeks = [
-  { label: '01 April', value: 8, color: '#7040b8' },
+  { label: '01 April', value: 9, color: '#7040b8' },
 ];
 new Chart(document.getElementById('weekChart'), {
   type: 'doughnut',
