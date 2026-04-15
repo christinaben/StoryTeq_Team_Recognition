@@ -379,11 +379,61 @@
     .ace-card { flex-direction: column; }
     .section { padding: 40px 0 32px; }
   }
+
+
+
+    .month-nav {
+    background: #1a1240;
+    padding: 12px 48px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .month-nav-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-right: 8px;
+  }
+  .month-btn {
+    background: rgba(255,255,255,0.08);
+    border: 1.5px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.55);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .month-btn:hover { background: rgba(255,255,255,0.15); color: white; }
+  .month-btn.active {
+    background: linear-gradient(135deg, #7040b8, #d946a8);
+    border-color: transparent;
+    color: white;
+  }
+
+  
 </style>
 </head>
 <body>
 
+<nav class="month-nav">
+  <span class="month-nav-label">Month</span>
+  <button class="month-btn active" id="btn-april" onclick="switchMonth('april')">April 2026</button>
+  <button class="month-btn" id="btn-march" onclick="switchMonth('march')">March 2026</button>
+</nav>
+
 <!-- HERO -->
+<div id="month-april">
 <div class="hero">
   <div class="container" style="position:relative;z-index:1;">
     <div class="hero-logo">
@@ -577,12 +627,10 @@
 <script>
 const people = [
   { name: 'Luuk', count: 2, color: '#c9a84c' },
-  { name: 'Jolene', count: 2, color: '#c040b0' },
-  { name: 'Julia', count: 1, color: '#7040b8' },
+  { name: 'Jolene', count: 1, color: '#c040b0' },
   { name: 'Roberto Carbonell', count: 1, color: '#c45c38' },
   { name: 'Eline', count: 1, color: '#5870c8' },
   { name: 'Mahmoud', count: 1, color: '#2a5fa8' },
-  { name: 'Diana', count: 1, color: '#8a5cc8' },
   { name: 'Christina', count: 1, color: '#1d7a6b' },
   { name: 'Tamar', count: 1, color: '#8a5cc8' },
 ];
@@ -661,5 +709,20 @@ weeks.forEach(w => {
   weekLeg.innerHTML += `<div class="legend-item"><span class="legend-dot" style="background:${w.color}"></span><span>${w.label}</span><span class="legend-val">${w.value}</span></div>`;
 });
 </script>
+</div>
+
+<div id="month-march" style="display:none;">
+  <iframe src="march.html" style="width:100%;height:100vh;border:none;" scrolling="yes"></iframe>
+</div>
+
+<script>
+function switchMonth(month) {
+  document.getElementById('month-april').style.display = month === 'april' ? 'block' : 'none';
+  document.getElementById('month-march').style.display = month === 'march' ? 'block' : 'none';
+  document.getElementById('btn-april').classList.toggle('active', month === 'april');
+  document.getElementById('btn-march').classList.toggle('active', month === 'march');
+}
+</script>
+
 </body>
 </html>
