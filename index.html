@@ -79,10 +79,7 @@
     width: 32px;
     height: 32px;
   }
-  .hero-logo-dots span {
-    border-radius: 50%;
-    display: block;
-  }
+  .hero-logo-dots span { border-radius: 50%; display: block; }
   .hero-logo-name {
     font-size: 14px;
     font-weight: 600;
@@ -104,10 +101,7 @@
     line-height: 1.05;
     margin-bottom: 20px;
   }
-  .hero-title em {
-    font-style: italic;
-    color: var(--gold);
-  }
+  .hero-title em { font-style: italic; color: var(--gold); }
   .hero-sub {
     font-size: 16px;
     color: rgba(255,255,255,0.55);
@@ -147,7 +141,6 @@
     margin: 0 auto;
     padding: 0 24px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
   }
   .stat {
     padding: 28px 24px;
@@ -180,10 +173,7 @@
     font-size: 32px;
     color: var(--ink);
   }
-  .section-title span {
-    font-style: italic;
-    color: #9060c8;
-  }
+  .section-title span { font-style: italic; color: #9060c8; }
   .section-divider {
     flex: 1;
     height: 1px;
@@ -309,6 +299,57 @@
     line-height: 1.6;
   }
 
+  /* Team card — full width, lighter than ace */
+  .team-card {
+    background: #1d3a5a;
+    color: var(--white);
+    border-radius: 16px;
+    padding: 28px;
+    border: none;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .team-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -20px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: #3a7fd4;
+    opacity: 0.2;
+  }
+  .team-avatar {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2a5fa8, #4a9fd4);
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .team-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7ab8e8;
+    margin-bottom: 4px;
+  }
+  .team-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+  .team-body {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+  }
+
   .charts-section {
     background: var(--white);
     border-top: 1px solid var(--border);
@@ -376,7 +417,7 @@
     .hero { padding: 48px 24px 40px; }
     .stats-inner { grid-template-columns: 1fr 1fr; }
     .charts-grid { grid-template-columns: 1fr; }
-    .ace-card { flex-direction: column; }
+    .ace-card, .team-card { flex-direction: column; }
     .section { padding: 40px 0 32px; }
   }
 
@@ -450,6 +491,7 @@
     <p class="hero-sub">Wins, shoutouts, and the people who made it happen.</p>
     <div class="hero-dates">
       <a class="hero-date-pill" href="#w01">01 April</a>
+      <a class="hero-date-pill" href="#w14">14 April</a>
       <a class="hero-date-pill" href="#charts">Charts</a>
     </div>
   </div>
@@ -459,11 +501,11 @@
 <div class="stats-bar">
   <div class="stats-inner" style="grid-template-columns: repeat(3, 1fr);">
     <div class="stat">
-      <div class="stat-num">1</div>
+      <div class="stat-num">2</div>
       <div class="stat-label">Meeting weeks covered</div>
     </div>
     <div class="stat">
-      <div class="stat-num">9</div>
+      <div class="stat-num">14</div>
       <div class="stat-label">Individuals recognised</div>
     </div>
     <div class="stat">
@@ -564,7 +606,7 @@
         <div class="card-body">Recognised for being <em>"kind enough to process all the data from the meetings"</em> across the entire month — pulling out all the mentions and comments from the Wednesday Wins chapter and building the web-based report the team now uses ahead of the monthly vote.</div>
       </div>
 
-     <div class="card">
+      <div class="card">
         <div class="card-accent" style="background:var(--plum);"></div>
         <div class="card-top">
           <div class="avatar" style="background:var(--plum-light);color:var(--plum);">TA</div>
@@ -574,6 +616,96 @@
           </div>
         </div>
         <div class="card-body">Recognised for taking all the communication from Radisson — a very demanding client. <em>"All the hell that they're giving you, girl. Well done. Well done."</em></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== WEEK 14/04 ===== -->
+<div id="w14" class="section" style="background:var(--white); border-top: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-date">14 April</div>
+      <h2 class="section-title">Week <span>two</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="cards-grid">
+
+      <div class="card">
+        <div class="card-accent" style="background:#22a87a;"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:#d4f5eb;color:#1a7a58;">CA</div>
+          <div>
+            <div class="card-name">Catalina</div>
+            <span class="badge" style="background:#d4f5eb;color:#1a7a58;">Scripting & training</span>
+          </div>
+        </div>
+        <div class="card-body">Built a script that auto-sets up bounding boxes for Nivea templates — cuts out a bunch of manual work every time a new one comes in. On top of that, led the NIVA training workshop with one day's notice and nailed it.
+          <div class="card-quote">"She did amazing, everything was clear and I understood what was happening in After Effects, which is impressive." — Julia</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:#e07030;"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:#faeadb;color:#a84e18;">NI</div>
+          <div>
+            <div class="card-name">Nina</div>
+            <span class="badge" style="background:#faeadb;color:#a84e18;">Client delivery</span>
+          </div>
+        </div>
+        <div class="card-body">Came back from holiday on Tuesday and jumped straight into calls. Led a full project onboarding for Roberto the same day — with files she'd only just seen.
+          <div class="card-quote">"Thanks a lot for picking up everything this quickly and just being amazing support." — Julia</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:#d44060;"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:#fad8df;color:#a02040;">RO</div>
+          <div>
+            <div class="card-name">Romina</div>
+            <span class="badge" style="background:#fad8df;color:#a02040;">Knowledge sharing & client work</span>
+          </div>
+        </div>
+        <div class="card-body">Shared a handy workaround for copying templates (Alt/Option + Shift + B) that the whole team can use. Also picked up Sony as a new client — a demanding one — and is handling it well.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:#30a0b0;"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:#d8f0f4;color:#1a7080;">WM</div>
+          <div>
+            <div class="card-name">WengMee</div>
+            <span class="badge" style="background:#d8f0f4;color:#1a7080;">Team support</span>
+          </div>
+        </div>
+        <div class="card-body">Staying later in her time zone so the team can get help in the moment, not the next day.
+          <div class="card-quote">"Thanks for the flexibility." — Giulia</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:#7a9020;"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:#edf0d0;color:#566010;">QC</div>
+          <div>
+            <div class="card-name">Que Chimba</div>
+            <span class="badge" style="background:#edf0d0;color:#566010;">Client delivery</span>
+          </div>
+        </div>
+        <div class="card-body">Delivered client-facing templates this week. Also got their official team name — welcome to the roster.</div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-avatar">🤝</div>
+        <div>
+          <div class="team-eyebrow">Whole team shoutout</div>
+          <div class="team-name">Everyone</div>
+          <div class="team-body">With Diana out, the whole team stepped up and kept things running without a hitch.
+            <br><br><em>"It speaks for all of you."</em> — Eline</div>
+        </div>
       </div>
 
     </div>
@@ -592,7 +724,7 @@
       <div class="chart-box" style="grid-column: 1 / -1;">
         <div class="chart-title">Mentions by team member</div>
         <div class="chart-sub">Number of shoutouts across all weeks so far</div>
-        <div class="chart-wrap" style="height:360px;">
+        <div class="chart-wrap" style="height:420px;">
           <canvas id="barChart"></canvas>
         </div>
       </div>
@@ -626,13 +758,20 @@
 
 <script>
 const people = [
-  { name: 'Luuk', count: 2, color: '#c9a84c' },
-  { name: 'Jolene', count: 1, color: '#c040b0' },
-  { name: 'Roberto Carbonell', count: 1, color: '#c45c38' },
-  { name: 'Eline', count: 1, color: '#5870c8' },
-  { name: 'Mahmoud', count: 1, color: '#2a5fa8' },
-  { name: 'Christina', count: 1, color: '#1d7a6b' },
-  { name: 'Tamar', count: 1, color: '#8a5cc8' },
+  { name: 'Luuk',             count: 2, color: '#c9a84c' },
+  { name: 'Jolene',           count: 2, color: '#c040b0' },
+  { name: 'Julia',            count: 1, color: '#7040b8' },
+  { name: 'Roberto Carbonell',count: 1, color: '#c45c38' },
+  { name: 'Eline',            count: 1, color: '#5870c8' },
+  { name: 'Mahmoud',          count: 1, color: '#2a5fa8' },
+  { name: 'Diana',            count: 1, color: '#8a5cc8' },
+  { name: 'Christina',        count: 1, color: '#1d7a6b' },
+  { name: 'Tamar',            count: 1, color: '#8a5cc8' },
+  { name: 'Catalina',         count: 1, color: '#22a87a' },
+  { name: 'Nina',             count: 1, color: '#e07030' },
+  { name: 'Romina',           count: 1, color: '#d44060' },
+  { name: 'WengMee',          count: 1, color: '#30a0b0' },
+  { name: 'Que Chimba',       count: 1, color: '#7a9020' },
 ];
 
 people.sort((a, b) => b.count - a.count);
@@ -664,20 +803,22 @@ new Chart(document.getElementById('barChart'), {
 });
 
 const themes = [
-  { label: 'Client delivery', value: 3, color: '#2a5fa8' },
-  { label: 'Client communication', value: 1, color: '#8a5cc8' },
-  { label: 'Scripting & automation', value: 1, color: '#c9a84c' },
-  { label: 'Template delivery', value: 1, color: '#c45c38' },
-  { label: 'Project management', value: 1, color: '#5870c8' },
-  { label: 'Hour logging', value: 1, color: '#8a5cc8' },
-  { label: 'Process & systems', value: 1, color: '#1d7a6b' },
+  { label: 'Client delivery',        value: 5, color: '#2a5fa8' },
+  { label: 'Scripting & automation', value: 2, color: '#c9a84c' },
+  { label: 'Client communication',   value: 1, color: '#8a5cc8' },
+  { label: 'Template delivery',      value: 1, color: '#c45c38' },
+  { label: 'Project management',     value: 1, color: '#5870c8' },
+  { label: 'Process & systems',      value: 1, color: '#1d7a6b' },
+  { label: 'Knowledge sharing',      value: 1, color: '#d44060' },
+  { label: 'Team support',           value: 1, color: '#30a0b0' },
+  { label: 'Training',               value: 1, color: '#22a87a' },
 ];
 
 new Chart(document.getElementById('pieChart'), {
   type: 'doughnut',
   data: {
     labels: themes.map(t => t.label),
-    datasets: [{ data: themes.map(t => t.value), backgroundColor: themes.map(t => t.color), borderWidth: 2, borderColor: '#f0ede6', hoverOffset: 6 }]
+    datasets: [{ data: themes.map(t => t.value), backgroundColor: themes.map(t => t.color), borderWidth: 2, borderColor: '#f5f4fb', hoverOffset: 6 }]
   },
   options: {
     responsive: true, maintainAspectRatio: false, cutout: '60%',
@@ -692,12 +833,13 @@ themes.forEach(t => {
 
 const weeks = [
   { label: '01 April', value: 9, color: '#7040b8' },
+  { label: '14 April', value: 6, color: '#30a0b0' },
 ];
 new Chart(document.getElementById('weekChart'), {
   type: 'doughnut',
   data: {
     labels: weeks.map(w => w.label),
-    datasets: [{ data: weeks.map(w => w.value), backgroundColor: weeks.map(w => w.color), borderWidth: 2, borderColor: '#f0ede6', hoverOffset: 6 }]
+    datasets: [{ data: weeks.map(w => w.value), backgroundColor: weeks.map(w => w.color), borderWidth: 2, borderColor: '#f5f4fb', hoverOffset: 6 }]
   },
   options: {
     responsive: true, maintainAspectRatio: false, cutout: '60%',
