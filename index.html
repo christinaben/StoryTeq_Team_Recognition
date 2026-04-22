@@ -502,7 +502,9 @@
     <div class="hero-dates">
       <a class="hero-date-pill" href="#w01">01 April</a>
       <a class="hero-date-pill" href="#w14">14 April</a>
+      <a class="hero-date-pill" href="#w22">22 April</a>
       <a class="hero-date-pill" href="#charts">Charts</a>
+    
     </div>
   </div>
 </div>
@@ -511,11 +513,11 @@
 <div class="stats-bar">
   <div class="stats-inner" style="grid-template-columns: repeat(3, 1fr);">
     <div class="stat">
-      <div class="stat-num">2</div>
+      <div class="stat-num">3</div>
       <div class="stat-label">Meeting weeks covered</div>
     </div>
     <div class="stat">
-      <div class="stat-num">14</div>
+      <div class="stat-num">4</div>
       <div class="stat-label">Individuals recognised</div>
     </div>
     <div class="stat">
@@ -717,6 +719,83 @@
   </div>
 </div>
 
+
+<!-- ===== WEEK 22/04 ===== -->
+<div id="w22" class="section" style="background:var(--bg);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-date">22 April</div>
+      <h2 class="section-title">Week <span>three</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="cards-grid">
+
+      <div class="team-card">
+        <div class="team-card-title">The whole team</div>
+        <div class="team-card-sub">A very generic shout out to everyone for just really delivering great things, sharing updates, communicating clearly — the workload is pretty high, Diana is out, and it really comes to show that everyone's putting in a lot of effort.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--slate);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--slate-light);color:var(--slate);">WM</div>
+          <div>
+            <div class="card-name">WengMee</div>
+            <span class="badge" style="background:var(--slate-light);color:var(--slate);">Team support & client delivery</span>
+          </div>
+        </div>
+        <div class="card-body">Adjusted working hours to be there for the Colombian team — always there to help them out, support them.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--teal);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--teal-light);color:var(--teal);">SE</div>
+          <div>
+            <div class="card-name">Sergio</div>
+            <span class="badge" style="background:var(--teal-light);color:var(--teal);">Client delivery</span>
+          </div>
+        </div>
+        <div class="card-body">Big thanks to Sergio as well — rebuilt a template in AfterEffects and found a unique solution for the client, very much appreciated.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--gold);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--gold-light);color:#8a6a20;">SB</div>
+          <div>
+            <div class="card-name">Sebastian</div>
+            <span class="badge" style="background:var(--gold-light);color:#8a6a20;">Template delivery</span>
+          </div>
+        </div>
+        <div class="card-body">Big thanks for building an amazing template for SMG.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--olive);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--olive-light);color:var(--olive);">JU</div>
+          <div>
+            <div class="card-name">Julia</div>
+            <span class="badge" style="background:var(--olive-light);color:var(--olive);">Rock star logger</span>
+          </div>
+        </div>
+        <div class="card-body">Thank you for being very thorough in your time logging this week.</div>
+      </div>
+
+      <div class="ace-card">
+        <div class="ace-avatar">🎉</div>
+        <div>
+          <div class="ace-eyebrow">New face — South Africa 🇿🇦</div>
+          <div class="ace-name">Gift</div>
+          <div class="ace-body">A new face joining the team — Gift, all the way from South Africa. We are very persistent, very persuasive on that. He will hopefully join before summer.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <!-- ===== CHARTS ===== -->
 <div id="charts" class="charts-section">
   <div class="container">
@@ -764,6 +843,7 @@
 <script>
 const people = [
   { name: 'Luuk',             count: 2, color: '#c9a84c' },
+  { name: 'WengMee',          count: 2, color: '#30a0b0' },
   { name: 'Jolene',           count: 1, color: '#c040b0' },
   { name: 'Roberto Carbonell',count: 1, color: '#c45c38' },
   { name: 'Eline',            count: 1, color: '#5870c8' },
@@ -773,8 +853,10 @@ const people = [
   { name: 'Catalina',         count: 1, color: '#22a87a' },
   { name: 'Nina',             count: 1, color: '#e07030' },
   { name: 'Romina',           count: 1, color: '#d44060' },
-  { name: 'WengMee',          count: 1, color: '#30a0b0' },
-  { name: 'Que Chimba Team',       count: 1, color: '#7a9020' },
+  { name: 'Sergio',           count: 1, color: '#e06030' },
+  { name: 'Sebastian',        count: 1, color: '#6a40a8' },
+  { name: 'Julia',            count: 1, color: '#3a9060' },
+  { name: 'Que Chimba Team',  count: 1, color: '#7a9020' },
 ];
 
 people.sort((a, b) => b.count - a.count);
