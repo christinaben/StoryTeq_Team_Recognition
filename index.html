@@ -1,3 +1,6 @@
+Here's the full updated `index.html` with Week Three added.
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -511,11 +514,11 @@
 <div class="stats-bar">
   <div class="stats-inner">
     <div class="stat">
-      <div class="stat-num">2</div>
+      <div class="stat-num">3</div>
       <div class="stat-label">Meeting weeks covered</div>
     </div>
     <div class="stat">
-      <div class="stat-num">8</div>
+      <div class="stat-num">9</div>
       <div class="stat-label">Individuals recognised</div>
     </div>
     <div class="stat">
@@ -711,7 +714,48 @@
       <div class="section-divider"></div>
     </div>
     <div class="cards-grid">
-      <!-- Cards go here -->
+
+      <div class="team-card">
+        <div class="team-card-title">The whole team</div>
+        <div class="team-card-sub">Tamar, back from holiday: <em>"A big thank you to everyone covering during my holidays, because from the client's perspective, it all went very smoothly and they were very happy with everyone covering. So thanks a lot. Nice job."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--teal);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--teal-light);color:var(--teal);">SE</div>
+          <div>
+            <div class="card-name">Sergio</div>
+            <span class="badge" style="background:var(--teal-light);color:var(--teal);">Client call</span>
+          </div>
+        </div>
+        <div class="card-body">Romina gave the shoutout — <em>"A big thanks to Sergio that yesterday he led the call with the client, gave his valid input and he's doing great. Thank you so much. Nice job."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--slate);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--slate-light);color:var(--slate);">WM</div>
+          <div>
+            <div class="card-name">WengMee</div>
+            <span class="badge" style="background:var(--slate-light);color:var(--slate);">Problem solving</span>
+          </div>
+        </div>
+        <div class="card-body">Giulia gave a shoutout for the Dr. Oetker call on Tuesday. The past Christmas campaign had been painful on the client side — they weren't happy with the pack shot solutions due to template builder limitations around how packs overlap and interact. WengMee brainstormed solutions and brought them to life.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--olive);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--olive-light);color:var(--olive);">MI</div>
+          <div>
+            <div class="card-name">Milosz</div>
+            <span class="badge" style="background:var(--olive-light);color:var(--olive);">Project management</span>
+          </div>
+        </div>
+        <div class="card-body">Giulia gave the shoutout — <em>"He's been deep down into everything General Mills related. He basically project managed himself these few days that I was away and just kept getting hit right and left with different changes of priorities and insane requests."</em></div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -742,7 +786,7 @@
       <div class="chart-box" style="grid-column: 1 / -1;">
         <div class="chart-title">Mentions by team member</div>
         <div class="chart-sub">Number of shoutouts across all weeks so far</div>
-        <div class="chart-wrap" style="height:340px;">
+        <div class="chart-wrap" style="height:360px;">
           <canvas id="barChart"></canvas>
         </div>
       </div>
@@ -778,12 +822,13 @@
 const people = [
   { name: 'Christina', count: 3, color: '#1d7a6b' },
   { name: 'Dimana',    count: 3, color: '#8a5cc8' },
+  { name: 'Milosz',    count: 2, color: '#7040b8' },
   { name: 'Luuk',      count: 2, color: '#c9a84c' },
   { name: 'Romina',    count: 2, color: '#d44060' },
+  { name: 'WengMee',   count: 2, color: '#5870c8' },
   { name: 'Cata',      count: 1, color: '#4a7fd4' },
-  { name: 'WengMee',   count: 1, color: '#5870c8' },
-  { name: 'Milosz',    count: 1, color: '#7040b8' },
   { name: 'Julia',     count: 1, color: '#3a9060' },
+  { name: 'Sergio',    count: 1, color: '#2a8a6a' },
 ];
 
 people.sort((a, b) => b.count - a.count);
@@ -815,11 +860,13 @@ new Chart(document.getElementById('barChart'), {
 });
 
 const themes = [
-  { label: 'Client delivery',        value: 5, color: '#1d7a6b' },
-  { label: 'Team support & cover',   value: 4, color: '#5870c8' },
-  { label: 'Mentorship & onboarding',value: 2, color: '#8a5cc8' },
-  { label: 'Reporting & tooling',    value: 1, color: '#c9a84c' },
-  { label: 'Going above & beyond',   value: 1, color: '#4a7fd4' },
+  { label: 'Client delivery',         value: 5, color: '#1d7a6b' },
+  { label: 'Team support & cover',    value: 4, color: '#5870c8' },
+  { label: 'Mentorship & onboarding', value: 2, color: '#8a5cc8' },
+  { label: 'Project management',      value: 2, color: '#7040b8' },
+  { label: 'Problem solving',         value: 1, color: '#2a5fa8' },
+  { label: 'Reporting & tooling',     value: 1, color: '#c9a84c' },
+  { label: 'Going above & beyond',    value: 1, color: '#4a7fd4' },
 ];
 
 new Chart(document.getElementById('pieChart'), {
@@ -842,7 +889,7 @@ themes.forEach(t => {
 const weeks = [
   { label: '06 May', value: 7, color: '#1d7a6b' },
   { label: '13 May', value: 6, color: '#2a5fa8' },
-  { label: '20 May', value: 0, color: '#6a3d7a' },
+  { label: '20 May', value: 4, color: '#6a3d7a' },
   { label: '27 May', value: 0, color: '#c9a84c' },
 ];
 
