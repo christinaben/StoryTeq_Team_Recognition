@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Recognition — April 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  :root {
+    --ink: #2a2440;
+    --ink2: #4a4468;
+    --muted: #7a7a9a;
+    --border: rgba(100,80,200,0.1);
+    --bg: #f5f4fb;
+    --white: #ffffff;
+    --gold: #d946a8;
+    --gold-light: #fce8f5;
+    --teal: #4a7fd4;
+    --teal-light: #deeaf9;
+    --rose: #c040b0;
+    --rose-light: #f5d8f2;
+    --blue: #3a60c8;
+    --blue-light: #dce6f8;
+    --olive: #7040b8;
+    --olive-light: #ece4f8;
+    --plum: #8a5cc8;
+    --plum-light: #ede0f8;
+    --coral: #d946a8;
+    --coral-light: #fce8f5;
+    --slate: #5870c8;
+    --slate-light: #dde3f8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  .hero {
+    background: #2a1f5a;
+    color: var(--white);
+    padding: 72px 48px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: #9b6fd4;
+    opacity: 0.2;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 38%;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: #e060c0;
+    opacity: 0.15;
+  }
+  .hero-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .hero-logo-dots {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    width: 32px;
+    height: 32px;
+  }
+  .hero-logo-dots span {
+    border-radius: 50%;
+    display: block;
+  }
+  .hero-logo-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.04em;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a98ee8;
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+    max-width: 480px;
+    line-height: 1.6;
+  }
+  .hero-dates {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+  .hero-date-pill {
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.5);
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+  .hero-date-pill:hover { background: rgba(255,255,255,0.28); border-color: white; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  .stats-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+  }
+  .stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .stat {
+    padding: 28px 24px;
+    border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .stat-label { font-size: 12px; color: var(--muted); font-weight: 500; letter-spacing: 0.04em; }
+
+  .section { padding: 64px 0 48px; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .section-date {
+    font-family: 'DM Serif Display', serif;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--ink);
+  }
+  .section-title span {
+    font-style: italic;
+    color: #9060c8;
+  }
+  .section-divider {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  }
+  .card-accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 16px 16px 0 0;
+  }
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .card-name {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 100px;
+  }
+  .card-body {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--ink2);
+  }
+  .card-quote {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 10px;
+    border-left: 2px solid var(--border);
+    padding-left: 10px;
+  }
+
+  .ace-card {
+    background: #2a1f5a;
+    color: var(--white);
+    border-radius: 16px;
+    padding: 28px;
+    border: none;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ace-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -20px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: #7040b8;
+    opacity: 0.2;
+  }
+  .ace-avatar {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7040b8, #d946a8);
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .ace-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a98ee8;
+    margin-bottom: 4px;
+  }
+  .ace-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+  .ace-body {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+  }
+
+  .team-card {
+    background: linear-gradient(135deg, #7040b8, #d946a8);
+    color: var(--white);
+    border-radius: 16px;
+    padding: 28px;
+    border: none;
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+  .team-card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  .team-card-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .farewell-card {
+    background: linear-gradient(135deg, #1a1040, #3a1060);
+    color: var(--white);
+    border-radius: 16px;
+    padding: 28px;
+    border: none;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .farewell-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -20px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: #d946a8;
+    opacity: 0.15;
+  }
+  .farewell-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d080e0;
+    margin-bottom: 4px;
+  }
+  .farewell-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+  .farewell-body {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .charts-section {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 0;
+  }
+  .charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+  }
+  .chart-box {
+    background: var(--bg);
+    border-radius: 16px;
+    padding: 28px;
+    border: 1px solid var(--border);
+  }
+  .chart-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .chart-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .chart-wrap { position: relative; }
+  .legend-list {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--ink2);
+  }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .legend-val {
+    margin-left: auto;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .footer {
+    background: #2a1f5a;
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 12px;
+  }
+  .footer strong { color: rgba(255,255,255,0.6); }
+
+  @media (max-width: 640px) {
+    .hero { padding: 48px 24px 40px; }
+    .stats-inner { grid-template-columns: 1fr 1fr; }
+    .charts-grid { grid-template-columns: 1fr; }
+    .ace-card, .farewell-card { flex-direction: column; }
+    .section { padding: 40px 0 32px; }
+  }
+
+  .month-nav {
+    background: #2a1f5a;
+    padding: 12px 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .month-nav-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-right: 4px;
+  }
+  .month-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 18px;
+    border-radius: 100px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .month-btn:hover { background: rgba(255,255,255,0.2); color: white; }
+  .month-btn.active { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.6); color: white; }
+</style>
+</head>
+<body>
+
+<nav class="month-nav">
+  <span class="month-nav-label">Month</span>
+  <a class="month-btn" href="index.html">May 2026</a>
+  <a class="month-btn active" href="april.html">April 2026</a>
+  <a class="month-btn" href="march.html">March 2026</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="hero-logo">
+      <div class="hero-logo-dots">
+        <span style="background:#9ab8f0;"></span>
+        <span style="background:#4a7fd4;"></span>
+        <span style="background:#7040b8;"></span>
+        <span style="background:#d946a8;"></span>
+      </div>
+      <div class="hero-logo-name">Storyteq</div>
+    </div>
+    <div class="hero-eyebrow">Platform Services Team · April 2026</div>
+    <h1 class="hero-title">Team<br><em>Recognition</em></h1>
+    <p class="hero-sub">Four weeks of wins, shoutouts, and the people who made it happen.</p>
+    <div class="hero-dates">
+      <a class="hero-date-pill" href="#w01">01 April</a>
+      <a class="hero-date-pill" href="#w14">15 April</a>
+      <a class="hero-date-pill" href="#w22">22 April</a>
+      <a class="hero-date-pill" href="#w29">29 April</a>
+      <a class="hero-date-pill" href="#charts">Charts</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Meeting weeks covered</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">20</div>
+      <div class="stat-label">Individuals recognised</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">1</div>
+      <div class="stat-label">ACE</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== WEEK 01/04 ===== -->
+<div id="w01" class="section" style="background:var(--bg);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-date">01 April</div>
+      <h2 class="section-title">Week <span>one</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="cards-grid">
+
+      <div class="ace-card">
+        <div class="ace-avatar">JB</div>
+        <div>
+          <div class="ace-eyebrow">ACE but better — March Winner</div>
+          <div class="ace-name">Julia</div>
+          <div class="ace-body">Won the monthly team vote for March. Announced during the meeting — <em>"Well done, Julia. You truly deserve it."</em> The trophy to be passed to her in person.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--gold);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--gold-light);color:#8a6a20;">LU</div>
+          <div>
+            <div class="card-name">Luuk</div>
+            <span class="badge" style="background:var(--gold-light);color:#8a6a20;">Scripting & client delivery</span>
+          </div>
+        </div>
+        <div class="card-body">Built a script that lets you link layers together — reads the layers in Storyteq and with one click connects everything to the parameter. Estimated to save up to 30 minutes on complex templates. Also recognised alongside Jolene for rebuilding existing templates <em>"to make them more stable, usable for the future."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--rose);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--rose-light);color:var(--rose);">JO</div>
+          <div>
+            <div class="card-name">Jolene</div>
+            <span class="badge" style="background:var(--rose-light);color:var(--rose);">Client delivery</span>
+          </div>
+        </div>
+        <div class="card-body">Jointly recognised for rebuilding existing templates with Luuk — the client is now <em>"actually testing and rendering"</em> and <em>"running into barely anything."</em> They have <em>"barely sent any feedback"</em> and what they shared was minor. Hard to make this client happy — the bar was pretty low, which made the delivery all the more impressive.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--coral);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--coral-light);color:var(--coral);">RC</div>
+          <div>
+            <div class="card-name">Roberto Carbonell</div>
+            <span class="badge" style="background:var(--coral-light);color:var(--coral);">Template delivery</span>
+          </div>
+        </div>
+        <div class="card-body">Nina gave a shoutout for his work on Draft Kings — <em>"doing 3 templates in a week. Amazing. It's like he's been here for months. Really fast, really clean."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--slate);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--slate-light);color:var(--slate);">EL</div>
+          <div>
+            <div class="card-name">Eline</div>
+            <span class="badge" style="background:var(--slate-light);color:var(--slate);">Project management & handover</span>
+          </div>
+        </div>
+        <div class="card-body">With Yana and Daria out on sick leave, Eline did a <em>"really good job of project managing"</em> a project Jolene took over — consolidating everything that happened in the channel over <em>"the last 6 months"</em> into <em>"here is your task, good luck,"</em> which made it <em>"very easy"</em> to get started.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--blue);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--blue-light);color:var(--blue);">MA</div>
+          <div>
+            <div class="card-name">Mahmoud</div>
+            <span class="badge" style="background:var(--blue-light);color:var(--blue);">Client delivery</span>
+          </div>
+        </div>
+        <div class="card-body">Delivered the first template for Mohegan — <em>"zero feedback or additions"</em> and they're <em>"very excited to work more with us."</em> Also recognised for <em>"really trying to put the account into order."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--teal);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--teal-light);color:var(--teal);">CH</div>
+          <div>
+            <div class="card-name">Christina</div>
+            <span class="badge" style="background:var(--teal-light);color:var(--teal);">Recognition system</span>
+          </div>
+        </div>
+        <div class="card-body">Recognised for being <em>"kind enough to process all the data from the meetings"</em> across the entire month — pulling out all the mentions and comments from the Wednesday Wins chapter and building the web-based report the team now uses ahead of the monthly vote.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--plum);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--plum-light);color:var(--plum);">TA</div>
+          <div>
+            <div class="card-name">Tamar</div>
+            <span class="badge" style="background:var(--plum-light);color:var(--plum);">Client communication</span>
+          </div>
+        </div>
+        <div class="card-body">Recognised for taking all the communication from Radisson — a very demanding client. <em>"All the hell that they're giving you, girl. Well done. Well done."</em></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== WEEK 15/04 ===== -->
+<div id="w14" class="section" style="background:#efecf8;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-date">15 April</div>
+      <h2 class="section-title">Week <span>two</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="cards-grid">
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--teal);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--teal-light);color:var(--teal);">CA</div>
+          <div>
+            <div class="card-name">Cata</div>
+            <span class="badge" style="background:var(--teal-light);color:var(--teal);">Scripting & training</span>
+          </div>
+        </div>
+        <div class="card-body">Built a script that auto-sets up bounding boxes for Nivea templates — cuts out a bunch of manual work every time a new one comes in. On top of that, led the Nivea training workshop with one day's notice and nailed it.
+          <div class="card-quote">"She did amazing, everything was clear and I understood what was happening in After Effects, which is impressive." — Julia</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--gold);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--gold-light);color:#8a6a20;">NI</div>
+          <div>
+            <div class="card-name">Nina</div>
+            <span class="badge" style="background:var(--gold-light);color:#8a6a20;">Client delivery</span>
+          </div>
+        </div>
+        <div class="card-body">Came back from holiday on Tuesday and jumped straight into calls. Led a full project onboarding for Roberto the same day — with files she'd only just seen.
+          <div class="card-quote">"Thanks a lot for picking up everything this quickly and just being amazing support." — Julia</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--rose);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--rose-light);color:var(--rose);">RO</div>
+          <div>
+            <div class="card-name">Romina</div>
+            <span class="badge" style="background:var(--rose-light);color:var(--rose);">Knowledge sharing & client work</span>
+          </div>
+        </div>
+        <div class="card-body">Shared a handy workaround for copying templates (Alt/Option + Shift + B) that the whole team can use. Also picked up Sony as a new client — a demanding one — and is handling it well.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--slate);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--slate-light);color:var(--slate);">WM</div>
+          <div>
+            <div class="card-name">WengMee</div>
+            <span class="badge" style="background:var(--slate-light);color:var(--slate);">Team support</span>
+          </div>
+        </div>
+        <div class="card-body">Staying later in her time zone so the team can get help in the moment, not the next day.
+          <div class="card-quote">"Thanks for the flexibility." — Giulia</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--olive);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--olive-light);color:var(--olive);">QC</div>
+          <div>
+            <div class="card-name">Que Chimba Team</div>
+            <span class="badge" style="background:var(--olive-light);color:var(--olive);">Client delivery</span>
+          </div>
+        </div>
+        <div class="card-body">Delivered client-facing templates this week. Also got their official team name — welcome to the roster.</div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-title">Everyone</div>
+        <div class="team-card-sub">With Diana out, the whole team stepped up and kept things running without a hitch. <em>"It speaks for all of you."</em> — Eline</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== WEEK 22/04 ===== -->
+<div id="w22" class="section" style="background:var(--bg);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-date">22 April</div>
+      <h2 class="section-title">Week <span>three</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="cards-grid">
+
+      <div class="team-card">
+        <div class="team-card-title">The whole team</div>
+        <div class="team-card-sub">A very generic shout out to everyone for just really delivering great things, sharing updates, communicating clearly — the workload is pretty high, Diana is out, and it really comes to show that everyone's putting in a lot of effort.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--slate);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--slate-light);color:var(--slate);">WM</div>
+          <div>
+            <div class="card-name">WengMee</div>
+            <span class="badge" style="background:var(--slate-light);color:var(--slate);">Team support & client delivery</span>
+          </div>
+        </div>
+        <div class="card-body"><em>"Adjusted working hours to be there for the Colombian team — always there to help them out, support them."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--teal);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--teal-light);color:var(--teal);">SE</div>
+          <div>
+            <div class="card-name">Sergio</div>
+            <span class="badge" style="background:var(--teal-light);color:var(--teal);">Client delivery</span>
+          </div>
+        </div>
+        <div class="card-body"><em>"Big thanks to Sergio as well — rebuilt a template in AfterEffects and found a unique solution for the client, very much appreciated."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--gold);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--gold-light);color:#8a6a20;">SB</div>
+          <div>
+            <div class="card-name">Sebastian</div>
+            <span class="badge" style="background:var(--gold-light);color:#8a6a20;">Template delivery</span>
+          </div>
+        </div>
+        <div class="card-body"><em>"Big thanks for building an amazing template for SMG."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--olive);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--olive-light);color:var(--olive);">JU</div>
+          <div>
+            <div class="card-name">Julia</div>
+            <span class="badge" style="background:var(--olive-light);color:var(--olive);">Rock star logger</span>
+          </div>
+        </div>
+        <div class="card-body"><em>"Thank you for being very thorough in your time logging this week."</em></div>
+      </div>
+
+      <div class="team-card" style="background: #2a1f5a;">
+        <div class="team-card-title">🎉 Gift</div>
+        <div class="team-card-sub">A new face joining the team — Gift, all the way from South Africa.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== WEEK 29/04 ===== -->
+<div id="w29" class="section" style="background:#efecf8;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-date">29 April</div>
+      <h2 class="section-title">Week <span>four</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="cards-grid">
+
+      <div class="team-card">
+        <div class="team-card-title">Romina, Christina, Dimana &amp; Julia</div>
+        <div class="team-card-sub"><em>"It's insane. It's definitely their peak period. And there's a lot of tight deadlines."</em> Despite the stress and effort, <em>"it's all coming together"</em> and <em>"the loads are being met."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--teal);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--teal-light);color:var(--teal);">CH</div>
+          <div>
+            <div class="card-name">Christina</div>
+            <span class="badge" style="background:var(--teal-light);color:var(--teal);">Script magic</span>
+          </div>
+        </div>
+        <div class="card-body"><em>"Christina script is amazing because instead of spending two or three days on Sony translations, maybe more. It was half an hour."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--rose);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--rose-light);color:var(--rose);">CH</div>
+          <div>
+            <div class="card-name">Christina &amp; Dimana</div>
+            <span class="badge" style="background:var(--rose-light);color:var(--rose);">Client recognition</span>
+          </div>
+        </div>
+        <div class="card-body">Sony sent an email <em>"saying thank you"</em> and that they are <em>"very appreciated for the work that the team is putting in."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--gold);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--gold-light);color:#8a6a20;">JA</div>
+          <div>
+            <div class="card-name">Jaïr</div>
+            <span class="badge" style="background:var(--gold-light);color:#8a6a20;">Going above &amp; beyond</span>
+          </div>
+        </div>
+        <div class="card-body">Praised for <em>"committing to a project for Nivea and adjusting his hours and working overtime"</em> to meet the deadline — even though <em>"the mistakes and why we were delayed was on the client side."</em> Called <em>"very appreciated and super helpful."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--slate);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--slate-light);color:var(--slate);">CS</div>
+          <div>
+            <div class="card-name">Cata</div>
+            <span class="badge" style="background:var(--slate-light);color:var(--slate);">Team player</span>
+          </div>
+        </div>
+        <div class="card-body"><em>"Helping with all the testing and also jumping projects to help us out with meeting the deadline."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--olive);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--olive-light);color:var(--olive);">MI</div>
+          <div>
+            <div class="card-name">Milosz</div>
+            <span class="badge" style="background:var(--olive-light);color:var(--olive);">2 templates in 2 days</span>
+          </div>
+        </div>
+        <div class="card-body"><em>"Built 2 templates in two days and the client was insanely happy with that."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--slate);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--slate-light);color:var(--slate);">WM</div>
+          <div>
+            <div class="card-name">WengMee</div>
+            <span class="badge" style="background:var(--slate-light);color:var(--slate);">Initiative</span>
+          </div>
+        </div>
+        <div class="card-body">Thanked for <em>"really picking up this whole product related research and taking the time to check in things with Koon"</em> to make the workflow faster, and for <em>"coordinating with everybody else doing other things."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--olive);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--olive-light);color:var(--olive);">JU</div>
+          <div>
+            <div class="card-name">Julia</div>
+            <span class="badge" style="background:var(--olive-light);color:var(--olive);">Rock star logger</span>
+          </div>
+        </div>
+        <div class="card-body"><em>"Julia is still the champion of time logging."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--teal);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--teal-light);color:var(--teal);">AN</div>
+          <div>
+            <div class="card-name">Anton</div>
+            <span class="badge" style="background:var(--teal-light);color:var(--teal);">Farewell</span>
+          </div>
+        </div>
+        <div class="card-body">Thanked on his last Wednesday meeting for <em>"organizing such a clear handover"</em> — <em>"sorting all the handovers when it comes to team members"</em> and <em>"sorting all the handovers when it comes to tasks."</em></div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--rose);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--rose-light);color:var(--rose);">TA</div>
+          <div>
+            <div class="card-name">Tamar</div>
+            <span class="badge" style="background:var(--rose-light);color:var(--rose);">Contribution</span>
+          </div>
+        </div>
+        <div class="card-body">Recognised for building the Dream Big OKR board, which gives the team <em>"a lot of valuable information"</em> into which projects need a retrospective and why.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent" style="background:var(--olive);"></div>
+        <div class="card-top">
+          <div class="avatar" style="background:var(--olive-light);color:var(--olive);">RD</div>
+          <div>
+            <div class="card-name">Roberto Denaro</div>
+            <span class="badge" style="background:var(--olive-light);color:var(--olive);">Dr. Oetker</span>
+          </div>
+        </div>
+        <div class="card-body">Giulia gave a shoutout to Rob for <em>"picking everything Dr. Oetker related"</em> and for planning a meeting with everyone on it.</div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-title">🎉 One year — Milosz</div>
+        <div class="team-card-sub">Celebrating <em>"Milosz first year at Storyteq"</em> — and as Milosz himself said, his <em>"official full-time contract"</em> anniversary. The team agreed: <em>"We should celebrate Milosz twice a year."</em></div>
+      </div>
+
+      <div class="team-card" style="background: #2a1f5a;">
+        <div class="team-card-title">👋 Goodbye Anton — good luck to new beginnings</div>
+        <div class="team-card-sub">It's Anton's last Wednesday with the team. We'll miss you!</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHARTS ===== -->
+<div id="charts" class="charts-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">By the <span>numbers</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="charts-grid">
+
+      <div class="chart-box" style="grid-column: 1 / -1;">
+        <div class="chart-title">Mentions by team member</div>
+        <div class="chart-sub">Number of shoutouts across all weeks so far</div>
+        <div class="chart-wrap" style="height:420px;">
+          <canvas id="barChart"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-title">Recognition by theme</div>
+        <div class="chart-sub">What the team was celebrated for</div>
+        <div class="chart-wrap" style="height:220px;">
+          <canvas id="pieChart"></canvas>
+        </div>
+        <div class="legend-list" id="pieLegend"></div>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-title">Shoutouts per week</div>
+        <div class="chart-sub">Volume of recognition across the meetings</div>
+        <div class="chart-wrap" style="height:220px;">
+          <canvas id="weekChart"></canvas>
+        </div>
+        <div class="legend-list" id="weekLegend"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>Platform Services Team</strong> · April 2026 · Internal recognition report
+</div>
+
+<script>
+const people = [
+  { name: 'Christina',         count: 3, color: '#1d7a6b' },
+  { name: 'WengMee',           count: 3, color: '#30a0b0' },
+  { name: 'Luuk',              count: 2, color: '#c9a84c' },
+  { name: 'Tamar',             count: 2, color: '#8a5cc8' },
+  { name: 'Romina',            count: 2, color: '#d44060' },
+  { name: 'Dimana',            count: 2, color: '#c06080' },
+  { name: 'Cata',              count: 2, color: '#b05070' },
+  { name: 'Jolene',            count: 1, color: '#c040b0' },
+  { name: 'Julia',             count: 2, color: '#3a9060' },
+  { name: 'Roberto Carbonell', count: 1, color: '#c45c38' },
+  { name: 'Eline',             count: 1, color: '#5870c8' },
+  { name: 'Mahmoud',           count: 1, color: '#2a5fa8' },
+  { name: 'Nina',              count: 1, color: '#e07030' },
+  { name: 'Sergio',            count: 1, color: '#e06030' },
+  { name: 'Sebastian',         count: 1, color: '#6a40a8' },
+  { name: 'Milosz',            count: 1, color: '#7a4a9a' },
+  { name: 'Que Chimba Team',   count: 1, color: '#7a9020' },
+  { name: 'Jaïr',              count: 1, color: '#2a8a6a' },
+  { name: 'Roberto Denaro',    count: 1, color: '#7a9020' },
+  { name: 'Anton',             count: 1, color: '#4a6a9a' },
+];
+
+people.sort((a, b) => b.count - a.count);
+
+new Chart(document.getElementById('barChart'), {
+  type: 'bar',
+  data: {
+    labels: people.map(p => p.name),
+    datasets: [{
+      data: people.map(p => p.count),
+      backgroundColor: people.map(p => p.color),
+      borderRadius: 6,
+      borderSkipped: false,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.x} mention${ctx.parsed.x > 1 ? 's' : ''}` }}
+    },
+    scales: {
+      x: { beginAtZero: true, ticks: { stepSize: 1, font: { family: 'DM Sans', size: 11 }, color: '#7a7a9a' }, grid: { color: 'rgba(0,0,0,0.05)' } },
+      y: { grid: { display: false }, ticks: { font: { family: 'DM Sans', size: 12 }, color: '#2a2440' } }
+    }
+  }
+});
+
+const themes = [
+  { label: 'Client delivery',        value: 7, color: '#1d7a6b' },
+  { label: 'Process & systems',      value: 4, color: '#b84c5a' },
+  { label: 'Team support',           value: 3, color: '#5a7a2a' },
+  { label: 'Scripting & automation', value: 3, color: '#2a5fa8' },
+  { label: 'Template delivery',      value: 2, color: '#c9a84c' },
+  { label: 'Project management',     value: 2, color: '#5870c8' },
+  { label: 'Client communication',   value: 1, color: '#6a3d7a' },
+  { label: 'Knowledge sharing',      value: 1, color: '#c45c38' },
+  { label: 'Training',               value: 1, color: '#1d7a6b' },
+  { label: 'Celebration',            value: 1, color: '#7a4a9a' },
+];
+
+new Chart(document.getElementById('pieChart'), {
+  type: 'doughnut',
+  data: {
+    labels: themes.map(t => t.label),
+    datasets: [{ data: themes.map(t => t.value), backgroundColor: themes.map(t => t.color), borderWidth: 2, borderColor: '#f5f4fb', hoverOffset: 6 }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false, cutout: '60%',
+    plugins: { legend: { display: false } }
+  }
+});
+
+const pieLeg = document.getElementById('pieLegend');
+themes.forEach(t => {
+  pieLeg.innerHTML += `<div class="legend-item"><span class="legend-dot" style="background:${t.color}"></span><span>${t.label}</span><span class="legend-val">${t.value}</span></div>`;
+});
+
+const weeks = [
+  { label: '01 April', value: 7,  color: '#1d7a6b' },
+  { label: '15 April', value: 6,  color: '#2a5fa8' },
+  { label: '22 April', value: 5,  color: '#6a3d7a' },
+  { label: '29 April', value: 10, color: '#c9a84c' },
+];
+
+new Chart(document.getElementById('weekChart'), {
+  type: 'doughnut',
+  data: {
+    labels: weeks.map(w => w.label),
+    datasets: [{ data: weeks.map(w => w.value), backgroundColor: weeks.map(w => w.color), borderWidth: 2, borderColor: '#f5f4fb', hoverOffset: 6 }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false, cutout: '60%',
+    plugins: { legend: { display: false } }
+  }
+});
+const weekLeg = document.getElementById('weekLegend');
+weeks.forEach(w => {
+  weekLeg.innerHTML += `<div class="legend-item"><span class="legend-dot" style="background:${w.color}"></span><span>${w.label}</span><span class="legend-val">${w.value}</span></div>`;
+});
+</script>
+
+</body>
+</html>
