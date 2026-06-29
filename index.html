@@ -8,33 +8,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
   :root {
-    --ink: #2a2440;
-    --ink2: #4a4468;
-    --muted: #7a7a9a;
-    --border: rgba(100,80,200,0.1);
-    --bg: #f5f4fb;
-    --white: #ffffff;
-    --gold: #d946a8;
-    --gold-light: #fce8f5;
-    --teal: #4a7fd4;
-    --teal-light: #deeaf9;
-    --rose: #c040b0;
-    --rose-light: #f5d8f2;
-    --blue: #3a60c8;
-    --blue-light: #dce6f8;
-    --olive: #7040b8;
-    --olive-light: #ece4f8;
-    --plum: #8a5cc8;
-    --plum-light: #ede0f8;
-    --coral: #d946a8;
-    --coral-light: #fce8f5;
-    --slate: #5870c8;
-    --slate-light: #dde3f8;
+    --ink: #2a2440; --ink2: #4a4468; --muted: #7a7a9a; --border: rgba(100,80,200,0.1);
+    --bg: #f5f4fb; --white: #ffffff;
+    --gold: #d946a8; --gold-light: #fce8f5;
+    --teal: #4a7fd4; --teal-light: #deeaf9;
+    --rose: #c040b0; --rose-light: #f5d8f2;
+    --blue: #3a60c8; --blue-light: #dce6f8;
+    --olive: #7040b8; --olive-light: #ece4f8;
+    --plum: #8a5cc8; --plum-light: #ede0f8;
+    --coral: #d946a8; --coral-light: #fce8f5;
+    --slate: #5870c8; --slate-light: #dde3f8;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
-
   .hero { background: #2a1f5a; color: var(--white); padding: 72px 48px 60px; position: relative; overflow: hidden; }
   .hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 360px; height: 360px; border-radius: 50%; background: #9b6fd4; opacity: 0.2; }
   .hero::after { content: ''; position: absolute; bottom: -60px; left: 38%; width: 240px; height: 240px; border-radius: 50%; background: #e060c0; opacity: 0.15; }
@@ -42,30 +28,26 @@
   .hero-logo-dots { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; width: 32px; height: 32px; }
   .hero-logo-dots span { border-radius: 50%; display: block; }
   .hero-logo-name { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.5); letter-spacing: 0.04em; }
-  .hero-eyebrow { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #a98ee8; margin-bottom: 16px; }
+  .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #a98ee8; margin-bottom: 16px; }
   .hero-title { font-family: 'DM Serif Display', serif; font-size: clamp(42px, 6vw, 72px); line-height: 1.05; margin-bottom: 20px; }
   .hero-title em { font-style: italic; color: var(--gold); }
   .hero-sub { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 480px; line-height: 1.6; }
   .hero-dates { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
   .hero-date-pill { background: rgba(255,255,255,0.15); border: 1.5px solid rgba(255,255,255,0.5); color: white; font-size: 13px; font-weight: 600; padding: 8px 20px; border-radius: 100px; cursor: pointer; transition: all 0.2s; text-decoration: none; letter-spacing: 0.03em; }
   .hero-date-pill:hover { background: rgba(255,255,255,0.28); border-color: white; }
-
   .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-
-  .stats-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 0; }
+  .stats-bar { background: var(--white); border-bottom: 1px solid var(--border); }
   .stats-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(3, 1fr); }
   .stat { padding: 28px 24px; border-right: 1px solid var(--border); }
   .stat:last-child { border-right: none; }
   .stat-num { font-family: 'DM Serif Display', serif; font-size: 36px; line-height: 1; color: var(--ink); margin-bottom: 4px; }
   .stat-label { font-size: 12px; color: var(--muted); font-weight: 500; letter-spacing: 0.04em; }
-
   .section { padding: 64px 0 48px; }
   .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 40px; }
   .section-date { font-family: 'DM Serif Display', serif; font-size: 13px; color: var(--muted); }
   .section-title { font-family: 'DM Serif Display', serif; font-size: 32px; color: var(--ink); }
   .section-title span { font-style: italic; color: #9060c8; }
   .section-divider { flex: 1; height: 1px; background: var(--border); }
-
   .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
   .card { background: var(--white); border-radius: 16px; padding: 24px; border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
   .card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
@@ -75,25 +57,15 @@
   .card-name { font-weight: 600; font-size: 15px; color: var(--ink); margin-bottom: 3px; }
   .badge { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 9px; border-radius: 100px; }
   .card-body { font-size: 13.5px; line-height: 1.65; color: var(--ink2); }
-  .card-quote { font-style: italic; color: var(--muted); font-size: 13px; margin-top: 10px; border-left: 2px solid var(--border); padding-left: 10px; }
-
   .ace-card { background: #2a1f5a; color: var(--white); border-radius: 16px; padding: 28px; border: none; grid-column: 1 / -1; display: flex; align-items: flex-start; gap: 20px; position: relative; overflow: hidden; }
   .ace-card::before { content: ''; position: absolute; top: -40px; right: -20px; width: 160px; height: 160px; border-radius: 50%; background: #7040b8; opacity: 0.2; }
   .ace-avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #7040b8, #d946a8); color: white; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; flex-shrink: 0; }
   .ace-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #a98ee8; margin-bottom: 4px; }
   .ace-name { font-family: 'DM Serif Display', serif; font-size: 24px; margin-bottom: 6px; }
   .ace-body { font-size: 13.5px; color: rgba(255,255,255,0.65); line-height: 1.6; }
-
   .team-card { background: linear-gradient(135deg, #7040b8, #d946a8); color: var(--white); border-radius: 16px; padding: 28px; border: none; grid-column: 1 / -1; text-align: center; }
   .team-card-title { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 8px; }
   .team-card-sub { font-size: 14px; color: rgba(255,255,255,0.7); }
-
-  .farewell-card { background: linear-gradient(135deg, #1a1040, #3a1060); color: var(--white); border-radius: 16px; padding: 28px; border: none; grid-column: 1 / -1; display: flex; align-items: flex-start; gap: 20px; position: relative; overflow: hidden; }
-  .farewell-card::before { content: ''; position: absolute; top: -40px; right: -20px; width: 160px; height: 160px; border-radius: 50%; background: #d946a8; opacity: 0.15; }
-  .farewell-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #d080e0; margin-bottom: 4px; }
-  .farewell-name { font-family: 'DM Serif Display', serif; font-size: 24px; margin-bottom: 6px; }
-  .farewell-body { font-size: 13.5px; color: rgba(255,255,255,0.65); line-height: 1.6; font-style: italic; }
-
   .charts-section { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 64px 0; }
   .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
   .chart-box { background: var(--bg); border-radius: 16px; padding: 28px; border: 1px solid var(--border); }
@@ -104,18 +76,15 @@
   .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink2); }
   .legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
   .legend-val { margin-left: auto; font-weight: 600; color: var(--ink); }
-
   .footer { background: #2a1f5a; color: rgba(255,255,255,0.35); text-align: center; padding: 32px 24px; font-size: 12px; }
   .footer strong { color: rgba(255,255,255,0.6); }
-
   @media (max-width: 640px) {
     .hero { padding: 48px 24px 40px; }
     .stats-inner { grid-template-columns: 1fr 1fr; }
     .charts-grid { grid-template-columns: 1fr; }
-    .ace-card, .farewell-card { flex-direction: column; }
+    .ace-card { flex-direction: column; }
     .section { padding: 40px 0 32px; }
   }
-
   .month-nav { background: #2a1f5a; padding: 12px 48px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); }
   .month-nav-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-right: 4px; }
   .month-btn { background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); font-size: 13px; font-weight: 600; padding: 6px 18px; border-radius: 100px; cursor: pointer; text-decoration: none; transition: all 0.2s; }
@@ -164,11 +133,11 @@
       <div class="stat-label">Meeting weeks covered</div>
     </div>
     <div class="stat">
-      <div class="stat-num">20</div>
+      <div class="stat-num">15</div>
       <div class="stat-label">Individuals recognised</div>
     </div>
     <div class="stat">
-      <div class="stat-num">0</div>
+      <div class="stat-num">1</div>
       <div class="stat-label">ACE</div>
     </div>
   </div>
@@ -183,6 +152,15 @@
       <div class="section-divider"></div>
     </div>
     <div class="cards-grid">
+
+      <div class="ace-card">
+        <div class="ace-avatar">CA</div>
+        <div>
+          <div class="ace-eyebrow">ACE — June Winner</div>
+          <div class="ace-name">Catalina</div>
+          <div class="ace-body">Won the monthly team vote for June. Announced during the meeting — <em>"Congratulations, Cata."</em> The cup and trophy passed to her.</div>
+        </div>
+      </div>
 
       <div class="card">
         <div class="card-accent" style="background:var(--teal);"></div>
@@ -575,10 +553,10 @@ const people = [
   { name: 'Alex',      count: 5, color: '#3a60c8' },
   { name: 'Nina',      count: 4, color: '#c040b0' },
   { name: 'Milosz',    count: 3, color: '#7040b8' },
+  { name: 'Catalina',  count: 2, color: '#4a7fd4' },
   { name: 'Dimana',    count: 2, color: '#8a5cc8' },
   { name: 'Rob',       count: 2, color: '#6a3d7a' },
   { name: 'Luuk',      count: 1, color: '#c9a84c' },
-  { name: 'Catalina',  count: 1, color: '#4a7fd4' },
   { name: 'Christina', count: 1, color: '#1d7a6b' },
   { name: 'Julia',     count: 1, color: '#3a9060' },
   { name: 'Jair',      count: 1, color: '#2a5fa8' },
