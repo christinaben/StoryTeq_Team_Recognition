@@ -1,3 +1,4 @@
+
 # 🏆 Wednesday Wins — Team Recognition Site
 
 A simple website that shows shoutouts from our Wednesday team meetings. Each month gets its own page, and the whole thing lives on GitHub Pages, so it updates automatically whenever someone pushes a change from VS Code.
@@ -50,6 +51,15 @@ The 3 charts (Chart.js) at the bottom are **not automatic**. The numbers are typ
 
 ---
 
+## 🎙️ Where the content comes from
+
+- The shoutouts are pulled from the **Wednesday standup meetings** held in the **Platform Services** channel on Google Meet.
+- Each week, the meeting transcript (or notes from it) is the source for who got mentioned, what they did, and any direct quotes.
+- The general flow is: **transcript/notes ➝ short written summary per person ➝ turned into a card on the site.**
+- Since it comes from a live meeting, names and details should be double checked against the transcript before going on the page, especially for things like exact wording in quotes or mixing up similar names.
+
+---
+
 ## ✏️ How to add a new shoutout
 
 1. Open the month's HTML file and find the week section you want to add to.
@@ -77,3 +87,4 @@ The 3 charts (Chart.js) at the bottom are **not automatic**. The numbers are typ
 - **VS Code** — editing the files
 - **GitHub / GitHub Pages** — storing and publishing the site
 - **Chart.js** — powers the 3 charts at the bottom of each page (loaded via a link in the file, nothing to install)
+```
