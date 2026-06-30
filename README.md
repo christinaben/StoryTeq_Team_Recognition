@@ -66,7 +66,6 @@ The 3 charts (Chart.js) at the bottom are **not automatic**. The numbers are typ
 
 ## ⚠️ A few things worth knowing
 
-- **Roberto Denaro** and **Roberto Carbonell** are two different people on the team — double check which one a shoutout is actually about.
 - **Don't delete anything** from a file unless it's been clearly agreed first. If something looks outdated or wrong, flag it instead of removing it.
 - After pushing a change, the site can take a moment to update, and your browser might show an old cached version. A hard refresh fixes that:
   - Mac: `Cmd + Shift + R`
