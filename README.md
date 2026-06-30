@@ -1,4 +1,3 @@
-# StoryTeq_Team_Recognition
 # 🏆 Wednesday Wins — Team Recognition Site
 
 A simple website that shows shoutouts from our Wednesday team meetings. Each month gets its own page, and the whole thing lives on GitHub Pages, so it updates automatically whenever someone pushes a change from VS Code.
